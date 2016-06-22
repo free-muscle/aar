@@ -1,6 +1,5 @@
 # os: osx
 sudo: required
-dist: trusty
 language: android
 android:
   components:
@@ -29,7 +28,11 @@ android:
     # - sys-img-x86-android-17
 before_install:
   # - brew install node
+  - node -v
   - sudo apt-get install npm
+  - sudo npm install n -g
+  - sudo n stable
+  - node -v
   - sudo npm install -g cordova
 
 script:
