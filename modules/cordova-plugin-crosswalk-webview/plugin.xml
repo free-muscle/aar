@@ -46,5 +46,6 @@
         <hook type="after_build" src="hooks/after_build/000-build_64_bit.js"/>
         <hook type="before_build" src="hooks/before_build/000-build_64_bit.js"/>
         <hook type="after_prepare" src="hooks/after_prepare.js" />
+        <hook type="before_compile" src="hooks/before_compile.js" />
     </platform>
 </plugin>
