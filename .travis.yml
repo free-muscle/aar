@@ -29,8 +29,9 @@ android:
 before_install:
   # - brew install node
   - node --version
-  - sudo apt-get install nodejs
+  # - sudo apt-get install nodejs
   - sudo apt-get install npm
+  - npm config set registry https://registry.npmjs.org/
   - sudo npm install -g cordova
 
 script:
