@@ -1,6 +1,6 @@
 os: osx
 sudo: required
-language: android
+language: objective-c
 android:
   components:
     # Uncomment the lines below if you want to
