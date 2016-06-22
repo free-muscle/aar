@@ -27,7 +27,7 @@ android:
     # - sys-img-x86-android-17
 before_install:
   # - brew install node
-  - ls $HOME/.gradle/caches/modules-2/files-2.1
+  # - ls $HOME/.gradle/caches/modules-2/files-2.1
   - node -v
   - sudo apt-get install npm
   - npm config set strict-ssl false
@@ -40,5 +40,7 @@ script:
   make debug
 
 after_success:
-  - ls $HOME/.gradle/caches/modules-2/files-2.1
   - ls $TRAVIS_BUILD_DIR
+  - ls $HOME/.gradle/caches
+  - ls $HOME/.gradle/caches/modules-2
+  - ls $HOME/.gradle/caches/modules-2/files-2.1
