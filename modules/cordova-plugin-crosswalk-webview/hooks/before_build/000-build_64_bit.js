@@ -16,8 +16,8 @@ module.exports = function(context) {
   };
   var HOME = process.env.HOME;
   var rootPath = HOME;
-  var libPath = path.join(rootPath, '.gradle/modules-2/files-2.1/org.xwalk/xwalk_core_library/17.46.448.10/cd626c32360d9b48b60cf685b38fa7f5b31156df');
-  var tailPath = 'modules-2/files-2.1/org.xwalk/xwalk_core_library/17.46.448.10/cd626c32360d9b48b60cf685b38fa7f5b31156df/xwalk_core_library-17.46.448.10.aar';
+  var libPath = path.join(rootPath, '.gradle/caches/modules-2/files-2.1/org.xwalk/xwalk_core_library/17.46.448.10/cd626c32360d9b48b60cf685b38fa7f5b31156df');
+  var tailPath = '.gradle/caches/modules-2/files-2.1/org.xwalk/xwalk_core_library/17.46.448.10/cd626c32360d9b48b60cf685b38fa7f5b31156df/xwalk_core_library-17.46.448.10.aar';
   var xwalkPath = path.join(rootPath, tailPath);
   // var platform = context.cmdLine.indexOf('--x86')>-1?'x86':'arm';
   // var channel = context.opts.options.indexOf('--dev')>-1?'dev':'release';
