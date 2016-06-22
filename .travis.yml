@@ -28,12 +28,10 @@ android:
     # - sys-img-x86-android-17
 before_install:
   # - brew install node
-  - node --version
-  # - sudo apt-get install nodejs
   - sudo apt-get install npm
-  - npm config set registry http://registry.nodejitsu.com
-  - sudo npm install -g cordova
-  - npm config set registry https://registry.npmjs.org
+  - sudo add-apt-repository ppa:cordova-ubuntu/ppa
+  - sudo apt-get update
+  - sudo apt-get install cordova-cli
 
 script:
   make debug
