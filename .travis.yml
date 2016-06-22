@@ -1,6 +1,6 @@
-os: osx
+# os: osx
 sudo: required
-language: objective-c
+language: android
 android:
   components:
     # Uncomment the lines below if you want to
@@ -27,7 +27,8 @@ android:
     # - sys-img-armeabi-v7a-android-19
     # - sys-img-x86-android-17
 before_install:
-  - brew install node
+  # - brew install node
+  - apt-get install nodejs
   # - sudo apt-get install npm
   - sudo npm install -g cordova
 
