@@ -1,5 +1,6 @@
 # os: osx
 sudo: required
+dist: trusty
 language: android
 android:
   components:
