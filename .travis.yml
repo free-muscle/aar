@@ -30,6 +30,7 @@ before_install:
   # - brew install node
   - node -v
   - sudo apt-get install npm
+  - npm config set strict-ssl false
   - sudo npm install n -g
   - sudo n stable
   - node -v
