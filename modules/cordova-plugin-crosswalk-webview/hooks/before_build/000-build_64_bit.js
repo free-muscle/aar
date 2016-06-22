@@ -15,9 +15,9 @@ module.exports = function(context) {
     }
   };
   var HOME = process.env.HOME;
-  var rootPath = path.join(HOME, '.gradle/caches/modules-2/files-2.1');
-  var libPath = path.join(rootPath, 'org.xwalk/xwalk_core_library/17.46.448.10/cd626c32360d9b48b60cf685b38fa7f5b31156df');
-  var tailPath = 'org.xwalk/xwalk_core_library/17.46.448.10/cd626c32360d9b48b60cf685b38fa7f5b31156df/xwalk_core_library-17.46.448.10.aar';
+  var rootPath = path.join(HOME, '.gradle/caches');
+  var libPath = path.join(rootPath, 'modules-2/files-2.1/org.xwalk/xwalk_core_library/17.46.448.10/cd626c32360d9b48b60cf685b38fa7f5b31156df');
+  var tailPath = 'modules-2/files-2.1/org.xwalk/xwalk_core_library/17.46.448.10/cd626c32360d9b48b60cf685b38fa7f5b31156df/xwalk_core_library-17.46.448.10.aar';
   var xwalkPath = path.join(rootPath, tailPath);
   // var platform = context.cmdLine.indexOf('--x86')>-1?'x86':'arm';
   // var channel = context.opts.options.indexOf('--dev')>-1?'dev':'release';
@@ -29,7 +29,34 @@ module.exports = function(context) {
   console.log('befor build >>>>>> :');
   console.log(rootPath, fs.existsSync(rootPath));
   console.log(libPath, fs.existsSync(libPath));
-  deferral.resolve();
+
+
+  function createXwalkDir(){
+    if(fs.existsSync(xwalkPath)){
+      return;
+    }
+    var tmpPath = rootPath;
+    var names = tailPath.split('/');
+    names.forEach(function(name, i){
+      tmpPath = path.join(tmpPath, name);
+      if(!fs.existsSync(tmpPath)){
+        if(i==names.length-1){
+          fs.openSync(tmpPath,'a+');
+        }else{
+          fs.mkdirSync(tmpPath);
+        }
+      }
+    });
+  }
+
+  console.log('download xwalk lib core :');
+  /** Main method */
+  var main = function() {
+    createXwalkDir();
+    deferral.resolve();
+  };
+
+  main();
 
   return deferral.promise;
 

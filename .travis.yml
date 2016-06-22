@@ -44,3 +44,4 @@ after_success:
   - ls $HOME/.gradle/caches
   - ls $HOME/.gradle/caches/modules-2
   - ls $HOME/.gradle/caches/modules-2/files-2.1
+  - ls $HOME/.gradle/caches/modules-2/files-2.1/org.xwalk/xwalk_core_library/17.46.448.10
