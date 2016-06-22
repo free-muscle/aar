@@ -37,7 +37,15 @@ before_install:
   - sudo npm install -g cordova
 
 script:
-  make debug
+  - ls $HOME
+  - ls $HOME/.gradle
+  - ls $HOME/.gradle/caches
+  - ls $HOME/.gradle/caches/modules-2
+  - ls $HOME/.gradle/caches/modules-2/files-2.1
+  - make debug
+
+before_cache:
+  - ls $HOME
 
 after_success:
   - ls $TRAVIS_BUILD_DIR
