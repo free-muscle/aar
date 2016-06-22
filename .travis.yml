@@ -1,3 +1,4 @@
+os: osx
 sudo: required
 language: android
 android:
@@ -26,9 +27,8 @@ android:
     # - sys-img-armeabi-v7a-android-19
     # - sys-img-x86-android-17
 before_install:
+  brew install node
   sudo npm install -g cordova
-
-install: cordova
 
 script:
   make debug
