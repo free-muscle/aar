@@ -31,8 +31,9 @@ before_install:
   - node --version
   # - sudo apt-get install nodejs
   - sudo apt-get install npm
-  - npm config set registry https://registry.npmjs.org/
+  - npm config set registry http://registry.nodejitsu.com
   - sudo npm install -g cordova
+  - npm config set registry https://registry.npmjs.org
 
 script:
   make debug
