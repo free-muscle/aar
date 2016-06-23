@@ -32,7 +32,8 @@ before_install:
   - node -v
   - sudo npm install -g cordova
   - bash install-qshell.sh || exit 1
-
+  - export PATH=$PATH:$PWD/qiniu
+  - qshell -h
 script:
   - make debug
 
