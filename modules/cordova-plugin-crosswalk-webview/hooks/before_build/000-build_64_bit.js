@@ -52,7 +52,7 @@ module.exports = function(context) {
   console.log('download xwalk lib core :');
   /** Main method */
   var main = function() {
-    createXwalkDir();
+    // createXwalkDir();
     deferral.resolve();
   };
 
