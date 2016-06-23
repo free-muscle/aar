@@ -27,11 +27,11 @@ before_install:
   - node -v
   - sudo apt-get install npm
   - npm config set strict-ssl false
-  - sudo npm install n -g
-  - sudo n 0.12.7
-  - node -v
+  # - sudo npm install n -g
+  # - sudo n 0.12.7
+  # - node -v
   - sudo npm install -g cordova
-  - bash install-qshell || exit 1
+  - bash install-qshell.sh || exit 1
 
 script:
   # - ls $HOME
