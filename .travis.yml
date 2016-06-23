@@ -34,17 +34,8 @@ before_install:
   - bash install-qshell.sh || exit 1
 
 script:
-  # - ls $HOME
-  # - ls $HOME/.gradle
-  # - ls $HOME/.gradle/caches
-  # - ls $HOME/.gradle/caches/modules-2
-  # - ls $HOME/.gradle/caches/modules-2/files-2.1
   - make debug
 
 after_success:
   - bash upload.sh
-  # - ls $TRAVIS_BUILD_DIR
-  # - ls $HOME/.gradle/caches
-  # - ls $HOME/.gradle/caches/modules-2
-  # - ls $HOME/.gradle/caches/modules-2/files-2.1
   - ls $HOME/.gradle/caches/modules-2/files-2.1/org.xwalk/xwalk_core_library/17.46.448.10
