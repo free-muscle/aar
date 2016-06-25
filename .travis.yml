@@ -5,11 +5,10 @@ android:
     - build-tools-23.0.1
     - android-23
 
-deploy:
-  on:
-    master: false
-    feature/dev: true
-
+branches:
+  only:
+    - feature/dev
+    
 before_install:
   - node -v
   - sudo apt-get install npm
