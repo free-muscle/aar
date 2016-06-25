@@ -8,7 +8,7 @@ android:
 deploy:
   on:
     master: true
-    dev: true
+    feature/dev: true
 
 before_install:
   - node -v
@@ -21,7 +21,7 @@ before_install:
   - bash install-qshell.sh || exit 1
   - export PATH=$PATH:$PWD/qiniu
   - qshell -h
-  
+
 script:
   - make debug
 
