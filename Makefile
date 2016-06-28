@@ -48,7 +48,7 @@ certificate:
 release: createDist build encrypt build-x86-release build-arm-release certificate
 	# cd dist && cordova build android --release
 
-debug: createDist build build-x86-debug #build-arm-debug
+debug: update createDist build build-x86-debug #build-arm-debug
 	# cd dist && cordova build android --debug
 
 
