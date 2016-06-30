@@ -17,7 +17,7 @@ before_install:
   - sudo npm install -g cordova
   - curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.2/install.sh | bash
   - command -v nvm
-  - nvm install 5.8.0
+  - nvm install 0.12.7
   - nvm ls
   - node -v
   - bash install-qshell.sh || exit 1
