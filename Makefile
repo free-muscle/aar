@@ -15,6 +15,7 @@ createDist:
 
 
 build:
+	npm install
 	mkdir dist/www/vendor && mkdir dist/www/vendor/book
 	find ./dist -name "*.map" -o -name "*.scss" -o -name "*.es6" -o -name "*.jsx" -type f | xargs rm -rf
 
