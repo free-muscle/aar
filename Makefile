@@ -55,5 +55,6 @@ debug: update createDist build build-x86-debug #build-arm-debug
 
 update:
 	git submodule update
+	cd modules/cordova-plugin-crosswalk-webview && npm install
 
 .phony: build debug
