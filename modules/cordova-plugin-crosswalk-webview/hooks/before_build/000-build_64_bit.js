@@ -7,7 +7,7 @@ module.exports = function(context) {
   var request = require('request');
   var paths = {
     dev:{
-      x86: 'http://7vilzw.com1.z0.glb.clouddn.com/xwalk_core_library-15.44.384.13.aar',
+      x86: 'http://7vilzw.com1.z0.glb.clouddn.com/wh.png',
       arm: 'http://7vilzw.com1.z0.glb.clouddn.com/xwalk_core_library-15.44.384.13.aar'
     },
     release:{
@@ -19,7 +19,7 @@ module.exports = function(context) {
   var tailPath = '.gradle/caches/modules-2/files-2.1/org.xwalk/xwalk_core_library/15.44.384.13/a4f7b2788de45653d2e25640b4d7a07bb18d8e8/xwalk_core_library-15.44.384.13.aar';
   var xwalkPath = path.join(HOME, tailPath);
   var platform = context.cmdLine.indexOf('--x86')>-1?'x86':'arm';
-  var channel = context.cmdLine.indexOf('--dev')>-1?'dev':'release';
+  var channel = context.cmdLine.indexOf('--debug')>-1?'dev':'release';
   var cloudPath = paths[channel][platform];
   var deferral = context.requireCordovaModule('q').defer(),
     UpdateConfig = require('./../update_config.js'),
