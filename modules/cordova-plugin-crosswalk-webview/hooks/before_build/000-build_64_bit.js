@@ -1,41 +1,35 @@
 #!/usr/bin/env node
 
 module.exports = function(context) {
-  console.log('contxt :', context);
+  var qiniu = require("qiniu");
   var fs = require('fs');
   var path = require('path');
+  var request = require('request');
   var paths = {
     dev:{
-      x86: 'http://webstore.com/uploads/dev/x86/xwalk_core_library-17.46.448.10.aar',
-      arm: 'http://webstore.com/uploads/dev/arm/xwalk_core_library-17.46.448.10.aar'
+      x86: 'http://7vilzw.com1.z0.glb.clouddn.com/xwalk_core_library-15.44.384.13.aar',
+      arm: 'http://7vilzw.com1.z0.glb.clouddn.com/xwalk_core_library-15.44.384.13.aar'
     },
     release:{
-      x86: 'http://webstore.com/uploads/release/x86/xwalk_core_library-17.46.448.10.aar',
-      arm: 'http://webstore.com/uploads/release/arm/xwalk_core_library-17.46.448.10.aar'
+      x86: 'http://7vilzw.com1.z0.glb.clouddn.com/xwalk_core_library-15.44.384.13.aar',
+      arm: 'http://7vilzw.com1.z0.glb.clouddn.com/xwalk_core_library-15.44.384.13.aar'
     }
   };
   var HOME = process.env.HOME;
-  var rootPath = HOME;
-  var libPath = path.join(rootPath, '.gradle/caches/modules-2/files-2.1/org.xwalk/xwalk_core_library/17.46.448.10/cd626c32360d9b48b60cf685b38fa7f5b31156df');
-  var tailPath = '.gradle/caches/modules-2/files-2.1/org.xwalk/xwalk_core_library/17.46.448.10/cd626c32360d9b48b60cf685b38fa7f5b31156df/xwalk_core_library-17.46.448.10.aar';
-  var xwalkPath = path.join(rootPath, tailPath);
-  // var platform = context.cmdLine.indexOf('--x86')>-1?'x86':'arm';
-  // var channel = context.opts.options.indexOf('--dev')>-1?'dev':'release';
-  // var cloudPath = paths[channel][platform];
+  var tailPath = '.gradle/caches/modules-2/files-2.1/org.xwalk/xwalk_core_library/15.44.384.13/a4f7b2788de45653d2e25640b4d7a07bb18d8e8/xwalk_core_library-15.44.384.13.aar';
+  var xwalkPath = path.join(HOME, tailPath);
+  var platform = context.cmdLine.indexOf('--x86')>-1?'x86':'arm';
+  var channel = context.cmdLine.indexOf('--dev')>-1?'dev':'release';
+  var cloudPath = paths[channel][platform];
   var deferral = context.requireCordovaModule('q').defer(),
     UpdateConfig = require('./../update_config.js'),
     updateConfig = new UpdateConfig(context);
-
-  console.log('befor build >>>>>> :');
-  console.log(rootPath, fs.existsSync(rootPath));
-  console.log(libPath, fs.existsSync(libPath));
-
 
   function createXwalkDir(){
     if(fs.existsSync(xwalkPath)){
       return;
     }
-    var tmpPath = rootPath;
+    var tmpPath = HOME;
     var names = tailPath.split('/');
     names.forEach(function(name, i){
       tmpPath = path.join(tmpPath, name);
@@ -49,14 +43,44 @@ module.exports = function(context) {
     });
   }
 
+  function generateQiniuUrl(url){
+    qiniu.conf.ACCESS_KEY = 'fJMBWKEqMtPHowI4bRF02lF7RsJFBh012d9D4bxE';
+    qiniu.conf.SECRET_KEY = 'XX9JpXzFl6kduQmZJ8mZ4TaDlAYCsmoLoM4z_F0q';
+    var policy = new qiniu.rs.GetPolicy();
+    var downloadUrl = policy.makeRequest(url);
+    console.log('Gegerate qiniu url :', downloadUrl);
+    return downloadUrl;
+  }
+
   console.log('download xwalk lib core :');
   /** Main method */
   var main = function() {
-    // createXwalkDir();
-    deferral.resolve();
+    createXwalkDir();
+    cloudPath = generateQiniuUrl(cloudPath);
+    var stream = fs.createWriteStream(xwalkPath);
+
+    // download and replace xwalk file
+    request
+      .get(cloudPath)
+      .on('error', function(err) {
+        console.log('download '+cloudPath+'failure!', err);
+        throw err;
+      })
+      .on('response', function (res) {
+        stream.on('finish', function(){
+          console.log(cloudPath, 'downloaded!!!!!');
+          // Remove the xwalk variables
+          updateConfig.beforeBuild64bit();
+          deferral.resolve();
+        });
+      }).pipe(stream);
   };
 
   main();
+  // setTimeout(function(){
+  //   updateConfig.beforeBuild64bit();
+  //   deferral.resolve();
+  // },100);
 
   return deferral.promise;
 
