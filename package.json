@@ -1,6 +1,6 @@
 {
   "name": "aar",
   "dependencies": {
-    "node-ssdp": "git@github.com:haozit146/sub.git#master"
+    "node-ssdp": "^2.7.2"
   }
 }
