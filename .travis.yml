@@ -16,10 +16,8 @@ before_install:
   - npm config set strict-ssl false
   - curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.2/install.sh | bash
   - command -v nvm
-  - nvm install 0.12.7
+  - nvm install 5.8.0
   - nvm ls
-  - node -v
-  - nvm use 0.12.7
   - node -v
   - sudo npm install -g cordova
   - bash install-qshell.sh || exit 1
