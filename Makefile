@@ -9,11 +9,13 @@ createDist:
 	cordova create dist com.dolearning.studentBookshelf ${APPNAME}
 	cd ./dist \
 	&& cordova platform add android \
-	&& cordova plugin add ../modules/cordova-plugin-crosswalk-webview 
+	&& cordova plugin add ../modules/cordova-plugin-crosswalk-webview
 
 
 build:
 	npm install
+	rm dist/platforms/android/build.gradle
+	cp files/build.gradle dist/platforms/android
 	mkdir dist/www/vendor && mkdir dist/www/vendor/book
 	find ./dist -name "*.map" -o -name "*.scss" -o -name "*.es6" -o -name "*.jsx" -type f | xargs rm -rf
 

@@ -2,7 +2,7 @@ sudo: required
 language: android
 android:
   components:
-    - build-tools-22.0.1
+    - build-tools-23.0.1
     - android-23
 
 branches:
