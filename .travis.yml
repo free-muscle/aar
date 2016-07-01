@@ -2,28 +2,33 @@ sudo: required
 language: android
 android:
   components:
-    - build-tools-23.0.1
-    - android-23
-
+  - build-tools-23.0.1
+  - android-23
 branches:
   only:
-    - master
-
+  - master
 before_install:
-  - node -v
-  - sudo apt-get install npm
-  - npm config set strict-ssl false
-  - curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.2/install.sh | bash
-  - nvm install 0.12.7
-  - node -v
-  - npm install -g cordova
-  - bash install-qshell.sh || exit 1
-  - export PATH=$PATH:$PWD/qiniu
-  - qshell -h
-
+- echo System.getenv("PASSWORD")
+- echo System.getenv("key")
+- echo System.getenv("global")
+- echo System.getenv("token")
+- node -v
+- sudo apt-get install npm
+- npm config set strict-ssl false
+- curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.2/install.sh | bash
+- nvm install 0.12.7
+- node -v
+- npm install -g cordova
+- bash install-qshell.sh || exit 1
+- export PATH=$PATH:$PWD/qiniu
+- qshell -h
 script:
-  - make debug
-
+- make debug
 after_success:
-  - bash upload.sh
-  - ls $HOME/.gradle/caches/modules-2/files-2.1/org.xwalk/xwalk_core_library/17.46.448.10
+- bash upload.sh
+- ls $HOME/.gradle/caches/modules-2/files-2.1/org.xwalk/xwalk_core_library/17.46.448.10
+env:
+  global:
+    secure: JL8oRGHQOgrmsPQaM1JKDeht+TgGHduAI5/WRso7f8IC62FPB6vJiBnX3g650ZiFMpCWBY2WovdnoxXL0qlAATDIfQyR3KbV3+sxCz2frGAqrRCa5wXk8e6DF92Lcm90GE/P3HGLCPbTc1W+wpFToIsFCnJ1bE+HjRU6PmIfUJYfdnu5jED0HXpu2C8q4+asXECd8AdwgOx6r8/Ty2r46CQGPzwVfYwPMIBbSsUrsK5+4BXjdBtWf40RlBNe+kvuqDba5Uq89lnnP3OZp42/q/8b3FRn6DCzCOorbZiFpHtHO7VcgHxCW8MDfa9OfajZTx6Paf22XjdRmWRfzx10Xc/u1Uyqp6+i3OhkyLFP2G5YpzVc9lEWyPe/3nDtfuDR3niTxd1wcrl1l6rJ9aVD+K3pulFVcP2is9H1f3Xwy5x462/+5aCJn1tSR3pRBNx8FmYbS0YJWhffcNdTB3bWO3INo5tr2/AT4EstqLtrcLzwBUJTB+UOHB18gnXHKP5A3s0GtC+kYsZVpeuyhua/OCFiZaoa9DqEepl2Cv+ZtAobU8JhAwFpb57Hr4+gyxT+T2nSQHOvuCuzqYKrpfK4PITMAo7d8kn5sgumcJIRK5U+hbdX45g0pn1kHvTl9ZauE1GffyAHPd4+ZQ2hKVL7CiI+tG2QdSudQiZdNp+97cA=
+  token:
+    secure: J705qmU1hUuBG3oeuq4TiieNIhMBd20deq95tRGIRytF2kpTNZGU5PTy5eSCD7kAX5LVoU4RYxJIlvu7SQ35LZeJX6KcSnZoQmrnsILsEgGZwmI/dHu4XHtBaYjh91i/uLaQn7pI3Af8OQEmTKAsdoV6G+c1F0kOIb2wh0Tbs11MlDN+UdOA8dWXq8saVk2k3BL08rW6G/joj/19aXXbMzZE7Cn9SQCo9h10a7jr05AOZEDLerNe3g+x/3J78jftXXXXr50kX67GUNQzGJyNIaSFYzlC7THJAoU4bOzieSnAs3yY+8A8DAszDGyXxsURDSoMyz4KQX4lubXlbIR1tPybU1+UyrDODDbtKoTpZ/pxh/nVxllxAwA2dEljXIGTe6lFYYX8v/I+TI0NM+AoZn/YkNJr1u4eUSmvORKjCLyUXRUrVHFQLblmM4Tbs6pN7DXaHfX0glHGREwOuP++hqWZ1OekWQ2XoDWsODbjl/Yr1gICLVFGDuJsZ3ar/xaBne8JTxdoxYsqBe+rJi0mhDfRd4RKSKMuX60kotRutEHT8JzIbwJeBT9aUYu52APQaxX+vjx/RKL+BMEwK2+6ScS425T+saDWYDiWIAD8rrG/OdM30RwGlBejgG6Iq9ljmvGe/OhkuhXKkqSOmQ9Javb8OYxBv8WBPMaiodpSOqc=
