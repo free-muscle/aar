@@ -7,7 +7,7 @@ module.exports = function(context) {
   var request = require('request');
   var paths = {
     dev:{
-      x86: 'http://7vilzw.com1.z0.glb.clouddn.com/wh.png',
+      x86: 'http://7vilzw.com1.z0.glb.clouddn.com/xwalk_core_library-15.44.384.13.aar',
       arm: 'http://7vilzw.com1.z0.glb.clouddn.com/xwalk_core_library-15.44.384.13.aar'
     },
     release:{
