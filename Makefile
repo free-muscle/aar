@@ -5,8 +5,7 @@ ZIPALIGN = $HOME/Library/Android/sdk/build-tools/22.0.1/zipalign
 all: createDist build release certificate
 
 createDist:
-	echo System.getenv("PASSWORD")
-	echo System.getenv("key")
+	echo getenv("PASSWORD")
 	rm -rf ./dist
 	cordova create dist com.dolearning.studentBookshelf ${APPNAME}
 	cd ./dist \
