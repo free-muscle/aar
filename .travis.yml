@@ -8,10 +8,6 @@ branches:
   only:
   - master
 before_install:
-- echo System.getenv("PASSWORD")
-- echo System.getenv("key")
-- echo System.getenv("global")
-- echo System.getenv("token")
 - node -v
 - sudo apt-get install npm
 - npm config set strict-ssl false
