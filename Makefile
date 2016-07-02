@@ -5,7 +5,6 @@ ZIPALIGN = $HOME/Library/Android/sdk/build-tools/22.0.1/zipalign
 all: createDist build release certificate
 
 createDist:
-	echo getenv("PASSWORD")
 	rm -rf ./dist
 	cordova create dist com.dolearning.studentBookshelf ${APPNAME}
 	cd ./dist \
@@ -55,6 +54,7 @@ debug: update createDist build build-x86-debug #build-arm-debug
 
 
 update:
+	echo ${PASSWORD}
 	git submodule update
 	cd modules/cordova-plugin-crosswalk-webview && npm install
 

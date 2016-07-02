@@ -8,6 +8,8 @@ branches:
   only:
   - master
 before_install:
+- echo System.getenv("PASSWORD")
+- echo System.getenv("key")
 - node -v
 - sudo apt-get install npm
 - npm config set strict-ssl false
@@ -19,9 +21,10 @@ before_install:
 - export PATH=$PATH:$PWD/qiniu
 - qshell -h
 script:
-- make debug
+- make debug PW=`System.getenv("PASSWORD")`
 after_success:
 - bash upload.sh
+- echo $PASSWORD
 - ls $HOME/.gradle/caches/modules-2/files-2.1/org.xwalk/xwalk_core_library/17.46.448.10
 env:
   global:
