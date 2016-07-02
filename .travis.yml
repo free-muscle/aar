@@ -8,8 +8,7 @@ branches:
   only:
   - master
 before_install:
-- echo System.getenv("PASSWORD")
-- echo System.getenv("key")
+- echo $PASSWORD
 - node -v
 - sudo apt-get install npm
 - npm config set strict-ssl false
@@ -21,7 +20,7 @@ before_install:
 - export PATH=$PATH:$PWD/qiniu
 - qshell -h
 script:
-- make debug PW=`System.getenv("PASSWORD")`
+- make debug
 after_success:
 - bash upload.sh
 - echo $PASSWORD
