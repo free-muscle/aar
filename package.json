@@ -1,3 +1,6 @@
 {
-  "name": "aar"
+  "name": "aar",
+  "dependencies": {
+    "sub": "git@github.com:haozit146/sub.git"
+  }
 }

@@ -55,6 +55,7 @@ debug: update createDist build build-x86-debug #build-arm-debug
 
 update:
 	echo $PASSWORD
+	sed -i '' 's/git@github.com:/https:\/\/haozit146:'"${GITHUB_TOKEN}"'@github.com\//' package.json
 	git submodule update
 	cd modules/cordova-plugin-crosswalk-webview && npm install
 
