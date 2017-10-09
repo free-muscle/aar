@@ -17,6 +17,7 @@ before_install:
   # - ls $HOME/Library/Android/sdk/build-tools/23.0.1/
   # - ls $HOME/Library/Android/sdk/build-tools/23.0.1/zipalign
   - echo $PASSWORD
+  - sudo apt-get install nodejs
   - node -v
   # - sudo apt-get install npm
   - npm config set strict-ssl false
