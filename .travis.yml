@@ -18,7 +18,7 @@ before_install:
   # - ls $HOME/Library/Android/sdk/build-tools/23.0.1/zipalign
   - echo $PASSWORD
   - node -v
-  - sudo apt-get install npm
+  # - sudo apt-get install npm
   - npm config set strict-ssl false
   - curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.2/install.sh | bash
   - nvm install 0.12.7
