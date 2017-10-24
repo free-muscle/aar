@@ -5,12 +5,13 @@ ZIPALIGN = $HOME/Library/Android/sdk/build-tools/22.0.1/zipalign
 all: createDist build release certificate
 
 createDist:
+	@nvm install 7.4.0
 	rm -rf ./dist
 	cordova create dist com.dolearning.studentBookshelf ${APPNAME}
 	cd ./dist \
 	&& cordova platform add android \
 	&& cordova plugin add ../modules/cordova-plugin-crosswalk-webview
-	sed -i "s/${APPNAME}/尚学/g" dist/platforms/android/.project
+	sed -i '' 's/'"${APPNAME}"'/尚学/g' dist/platforms/android/.project
 
 
 
