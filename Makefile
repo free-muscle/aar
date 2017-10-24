@@ -7,10 +7,11 @@ all: createDist build release certificate
 createDist:
 	rm -rf ./dist
 	cordova create dist com.dolearning.studentBookshelf ${APPNAME}
-	sed -i '' 's/${APPNAME}/尚学/g' dist/platforms/android/.project
 	cd ./dist \
 	&& cordova platform add android \
 	&& cordova plugin add ../modules/cordova-plugin-crosswalk-webview
+	sed -i \'\' \'s/${APPNAME}/尚学/g\' dist/platforms/android/.project
+
 
 
 build:
