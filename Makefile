@@ -7,6 +7,7 @@ all: createDist build release certificate
 createDist:
 	rm -rf ./dist
 	cordova create dist com.dolearning.studentBookshelf ${APPNAME}
+	sed -i '' 's/${APPNAME}/尚学/g' dist/platforms/android/.project
 	cd ./dist \
 	&& cordova platform add android \
 	&& cordova plugin add ../modules/cordova-plugin-crosswalk-webview
@@ -49,14 +50,14 @@ certificate:
 release: createDist build encrypt build-x86-release build-arm-release certificate
 	# cd dist && cordova build android --release
 
-debug: update createDist build build-x86-debug #build-arm-debug
+debug: createDist build build-x86-debug #build-arm-debug
 	# cd dist && cordova build android --debug
 
 
-update:
-	echo $PASSWORD
-	sed -i '' 's/git@github.com:/https:\/\/haozit146:'"${GITHUB_TOKEN}"'@github.com\//' package.json
-	git submodule update
-	cd modules/cordova-plugin-crosswalk-webview && npm install
+# update:
+# 	echo $PASSWORD
+	# sed -i '' 's/git@github.com:/https:\/\/haozit146:'"${GITHUB_TOKEN}"'@github.com\//' package.json
+	# git submodule update
+	# cd modules/cordova-plugin-crosswalk-webview && npm install
 
 .phony: build debug
