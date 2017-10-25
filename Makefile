@@ -9,8 +9,8 @@ createDist:
 	cordova create dist com.dolearning.studentBookshelf ${APPNAME}
 	cd ./dist \
 	&& cordova platform add android \
-	&& cordova plugin add cordova-plugin-compat@1.1.0 \
 	&& cordova plugin add ../modules/cordova-plugin-crosswalk-webview
+	# && cordova plugin add cordova-plugin-compat@1.1.0 \
 	# && cordova plugin add cordova-plugin-ezar-snapshot \
 	# && cordova plugin add cordova-plugin-file-transfer@1.5.1 \
 	# && cordova plugin add cordova-plugin-file@4.2.0 \
