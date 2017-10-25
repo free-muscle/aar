@@ -15,7 +15,7 @@ createDist:
 
 
 build:
-	npm install
+	# npm install
 	rm dist/platforms/android/build.gradle
 	cp files/build.gradle dist/platforms/android
 	mkdir dist/www/vendor && mkdir dist/www/vendor/book
