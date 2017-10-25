@@ -51,14 +51,15 @@ certificate:
 release: createDist build encrypt build-x86-release build-arm-release certificate
 	# cd dist && cordova build android --release
 
-debug: createDist build build-x86-debug #build-arm-debug
+debug: update createDist build build-x86-debug #build-arm-debug
 	# cd dist && cordova build android --debug
 
 
-# update:
+update:
+	cd modules/cordova-plugin-crosswalk-webview && npm install
 # 	echo $PASSWORD
 	# sed -i '' 's/git@github.com:/https:\/\/haozit146:'"${GITHUB_TOKEN}"'@github.com\//' package.json
 	# git submodule update
-	# cd modules/cordova-plugin-crosswalk-webview && npm install
+
 
 .phony: build debug
