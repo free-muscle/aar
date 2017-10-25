@@ -11,18 +11,17 @@ createDist:
 	&& cordova platform add android \
 	&& cordova plugin add cordova-plugin-compat@1.1.0 \
 	&& cordova plugin add ../modules/cordova-plugin-crosswalk-webview \
-	&& cordova plugin add phonegap-plugin-barcodescanner@5.0.0
-	# && cordova plugin add cordova-plugin-fileopener \
-	# && cordova plugin add cordova-plugin-networkinterface@1.0.8 \
-	# && cordova plugin add cordova-plugin-network-information@1.3.2 \
-	# && cordova plugin add cordova-plugin-media-capture@1.3.0 \
-	# && cordova plugin add cordova-plugin-camera@2.2.0 \
-	# && cordova plugin add cordova-plugin-ezar-snapshot \
-	# && cordova plugin add cordova-plugin-file-transfer \
-	# && cordova plugin add cordova-plugin-file \
-	# && cordova plugin add cordova-plugin-device \
-	# && cordova plugin add cordova-plugin-zip \
-	# && cordova plugin add cordova-plugin-media@2.3.0
+	&& cordova plugin add cordova-plugin-ezar-snapshot \
+	&& cordova plugin add cordova-plugin-file@4.2.0 \
+	&& cordova plugin add cordova-plugin-device@1.1.2 \
+	&& cordova plugin add cordova-plugin-zip@3.1.0 \
+	&& cordova plugin add phonegap-plugin-barcodescanner@5.0.0 \
+	&& cordova plugin add cordova-plugin-fileopener@1.0.4 \
+	&& cordova plugin add cordova-plugin-networkinterface@1.0.8 \
+	&& cordova plugin add cordova-plugin-network-information@1.3.2 \
+	&& cordova plugin add cordova-plugin-media-capture@1.3.0 \
+	&& cordova plugin add cordova-plugin-camera@2.2.0 \
+	&& cordova plugin add cordova-plugin-media@2.3.0
 
 	# && cordova plugin add cordova-plugin-crosswalk-webview@1.6.1
 	sed -i 's/'"${APPNAME}"'/尚/g' dist/platforms/android/.project
