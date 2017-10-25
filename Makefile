@@ -11,7 +11,7 @@ createDist:
 	&& cordova platform add android \
 	&& cordova plugin add cordova-plugin-compat@1.1.0 \
 	&& cordova plugin add ../modules/cordova-plugin-crosswalk-webview \
-	&& cordova plugin add phonegap-plugin-barcodescanner
+	&& cordova plugin add phonegap-plugin-barcodescanner@5.0.0
 	# && cordova plugin add cordova-plugin-fileopener \
 	# && cordova plugin add cordova-plugin-networkinterface@1.0.8 \
 	# && cordova plugin add cordova-plugin-network-information@1.3.2 \
