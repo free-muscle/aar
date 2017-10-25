@@ -6,7 +6,7 @@ all: createDist build release certificate
 
 createDist:
 	rm -rf ./dist
-	cordova create dist com.dolearning.studentBookshelf ${APPNAME}
+	cordova create dist com.do.student ${APPNAME}
 	cd ./dist \
 	&& cordova platform add android \
 	&& cordova plugin add ../modules/cordova-plugin-crosswalk-webview
