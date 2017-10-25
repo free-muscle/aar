@@ -26,7 +26,10 @@ createDist:
 	# && cordova plugin add cordova-plugin-media@2.3.0
 
 	# && cordova plugin add cordova-plugin-crosswalk-webview@1.6.1
-	sed -i 's/'"${APPNAME}"'/尚/g' dist/platforms/android/.project
+	# sed -i 's/'"${APPNAME}"'/尚/g' dist/platforms/android/.project
+	ls dist -al
+	ls dist/platforms -al
+	ls dist/platforms/android -al
 
 
 
