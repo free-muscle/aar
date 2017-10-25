@@ -12,8 +12,8 @@ before_install:
   - which android
   - ls /usr/local/android-sdk/
   - ls /usr/local/android-sdk/build-tools/
-  - ls /usr/local/android-sdk/build-tools/23.0.1/
-  - ls /usr/local/android-sdk/build-tools/23.0.1/zipalign
+  - ls /usr/local/android-sdk/build-tools/22.0.1/
+  - ls /usr/local/android-sdk/build-tools/22.0.1/zipalign
   # - ls $HOME/Library/Android/sdk/build-tools/
   # - ls $HOME/Library/Android/sdk/build-tools/23.0.1/
   # - ls $HOME/Library/Android/sdk/build-tools/23.0.1/zipalign
