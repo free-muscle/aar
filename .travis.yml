@@ -3,8 +3,8 @@ language: android
 android:
   components:
   - platform-tools
-  - android-22
-  - build-tools-23.0.1
+  - android-25
+  - build-tools-25.0.1
 branches:
   only:
   - master
@@ -14,17 +14,17 @@ before_install:
   - ls /usr/local/android-sdk/build-tools/
   # - ls /usr/local/android-sdk/build-tools/22.0.1/
   # - ls /usr/local/android-sdk/build-tools/22.0.1/zipalign
-  - ls /usr/local/android-sdk/build-tools/23.0.1/
-  - ls /usr/local/android-sdk/build-tools/23.0.1/zipalign
+  # - ls /usr/local/android-sdk/build-tools/23.0.1/
+  # - ls /usr/local/android-sdk/build-tools/23.0.1/zipalign
   - echo $PASSWORD
   # - sudo apt-get install node
   # - node -v
   # - sudo apt-get install npm
   # - npm config set strict-ssl false
   # - curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.2/install.sh | bash
-  - nvm install 0.12.7
+  - nvm install 7.4.0
   # - node -v
-  - npm install -g cordova@5.4.0
+  - npm install -g cordova
   - cordova -v
   - bash install-qshell.sh || exit 1
   - export PATH=$PATH:$PWD/qiniu
