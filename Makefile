@@ -9,7 +9,7 @@ createDist:
 	cordova create dist com.dolearning.studentBookshelf ${APPNAME}
 	cd ./dist \
 	&& cordova platform add android \
-	&& cordova plugin add ../modules/cordova-plugin-crosswalk-webview
+	&& cordova plugin add cordova-plugin-crosswalk-webview
 	# && cordova plugin add cordova-plugin-compat@1.1.0 \
 	# && cordova plugin add cordova-plugin-ezar-snapshot \
 	# && cordova plugin add cordova-plugin-file-transfer@1.5.1 \
@@ -45,7 +45,6 @@ build:
 encrypt:
 	cd modules/encrypt && bin/encrypt -s ../../dist/www -t ../../dist/www2
 	rm -rf dist/www && mv dist/www2 dist/www
-	cp -a ../bookshelf-student-v3/vendor/lockscreen.html dist/www/vendor
 
 
 build-x86-debug:
