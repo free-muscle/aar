@@ -1,4 +1,5 @@
-sudo: required
+# sudo: required
+os: osx
 language: android
 android:
   components:
