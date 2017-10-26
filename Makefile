@@ -32,11 +32,10 @@ createDist:
 
 
 build:
-	# npm install
 	rm dist/config.xml
-	# rm dist/platforms/android/build.gradle
+	rm dist/platforms/android/build.gradle
 	cp files/config.xml dist/config.xml
-	# cp files/build.gradle dist/platforms/android
+	cp files/build.gradle dist/platforms/android
 	mkdir dist/www/vendor && mkdir dist/www/vendor/book
 	find ./dist -name "*.map" -o -name "*.scss" -o -name "*.es6" -o -name "*.jsx" -type f | xargs rm -rf
 
