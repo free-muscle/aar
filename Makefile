@@ -15,7 +15,8 @@ createDist:
 
 build-x86-debug:
 	cd dist && cordova build android --debug --x86
-	mv `pwd`/dist/platforms/android/build/outputs/apk/android-x86-debug.apk `pwd`/dist/${APPNAME}-debug-x86.apk
+	ls dist/platforms/android/build/outputs/apk/
+	mv dist/platforms/android/build/outputs/apk/android-x86-debug.apk dist/${APPNAME}-debug-x86.apk	
 	ls ./
 	ls ./dist
 
