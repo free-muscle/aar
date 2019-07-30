@@ -28,7 +28,10 @@ jobs:
   include:
     # - script: echo "Running unit tests"
     - stage: GitHub Release
-      script: echo "Deploying to GitHub releases ..."
+      script: 
+        echo "Deploying to GitHub releases ..."
+        ls .
+        ls ./dist
       deploy:
         provider: releases
         file: ./dist/aarTest-debug-x86.apk

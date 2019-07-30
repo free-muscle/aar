@@ -47,6 +47,8 @@ encrypt:
 build-x86-debug:
 	cd dist && cordova build android --debug --x86
 	mv `pwd`/dist/platforms/android/build/outputs/apk/android-x86-debug.apk `pwd`/dist/${APPNAME}-debug-x86.apk
+	ls ./
+	ls ./dist
 
 build-arm-debug:
 	cd dist && cordova build android --debug --arm
