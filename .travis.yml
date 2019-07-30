@@ -12,6 +12,7 @@ android:
 before_install:
   - export DIR=$PWD
   - echo $DIR
+  - npm config set strict-ssl false 
   - nvm install 0.12.7
   - node -v
   - npm install -g cordova@5.1.1
