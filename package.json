@@ -1,6 +1,6 @@
 {
   "name": "aar",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "dependencies": {
     "sub": "git@github.com:haozit146/sub.git"
   }
