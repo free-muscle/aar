@@ -22,7 +22,7 @@ script:
   - make debug
 after_success:
   - echo "Build success!"
-  - ls ./dist
+  - ls ./
 
 jobs:
   include:
