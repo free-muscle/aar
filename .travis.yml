@@ -25,7 +25,7 @@ after_success:
 
 jobs:
   include:
-    - script: echo "Running unit tests"
+    # - script: echo "Running unit tests"
     - stage: GitHub Release
       script: echo "Deploying to GitHub releases ..."
       deploy:
