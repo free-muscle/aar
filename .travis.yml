@@ -6,9 +6,9 @@ android:
   - platform-tools
   - android-22
   - build-tools-23.0.1
-branches:
-  only:
-  - master
+# branches:
+#   only:
+#   - master
 before_install:
   - export DIR=$PWD
   - echo $DIR
@@ -22,6 +22,7 @@ script:
   - make debug
 after_success:
   - echo "Build success!"
+  - ls ./dist
 
 jobs:
   include:
@@ -30,6 +31,7 @@ jobs:
       script: echo "Deploying to GitHub releases ..."
       deploy:
         provider: releases
+        file: ./dist/aarTest-debug-x86.apk
         api_key: $GITHUB_TOKEN
         skip_cleanup: true
         on:
