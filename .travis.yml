@@ -39,5 +39,6 @@ jobs:
         file: ./dist/aarTest-debug.apk
         api_key: $GITHUB_PERSONAL_TOKEN
         skip_cleanup: true
+        branch: master
         on:
           tags: true
