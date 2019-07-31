@@ -11,14 +11,14 @@ android:
 #   - master
 before_install:
   - export DIR=$PWD
-  - echo $DIR
-  - npm config set strict-ssl false 
-  - nvm install 0.12.7
-  - node -v
-  - npm install -g cordova@5.1.1
-  - cordova -v
-  - cd /home/travis/.nvm/versions/node/v0.12.7/lib/node_modules/cordova/node_modules/cordova-lib/node_modules/ && npm install request@2.88.0
-  - cd $DIR
+  # - echo $DIR
+  # - npm config set strict-ssl false 
+  # - nvm install 0.12.7
+  # - node -v
+  # - npm install -g cordova@5.1.1
+  # - cordova -v
+  # - cd /home/travis/.nvm/versions/node/v0.12.7/lib/node_modules/cordova/node_modules/cordova-lib/node_modules/ && npm install request@2.88.0
+  # - cd $DIR
 script:
   - make debug
 after_success:
