@@ -23,7 +23,6 @@ script:
   - make debug
 after_success:
   - echo "Build success!"
-  - ls ./
 
 jobs:
   include:
@@ -31,12 +30,10 @@ jobs:
     - stage: GitHub Release
       script: 
         - echo "Deploying to GitHub releases ..."
-        - make debug
-        - ls .
-        - ls ./dist
+        # - make debug
       deploy:
         provider: releases
-        file: ./dist/aarTest-debug.apk
+        file: ./package.json
         api_key: $GITHUB_PERSONAL_TOKEN
         skip_cleanup: true
         branch: master
