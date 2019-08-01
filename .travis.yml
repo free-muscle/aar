@@ -52,5 +52,5 @@ jobs:
         skip_cleanup: true                
         on:          
           branch: master
-          tags: true
+          tags: "betav1.1.2"
           # condition: $TRAVIS_TAG =~ ^beta*$
