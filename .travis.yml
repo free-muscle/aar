@@ -30,6 +30,7 @@ jobs:
     - stage: Dev Release
       script:
         - echo "Deploying develop to github releases ..."
+        - echo $TRAVIS_TAG
         # - make debug
       deploy:
         provider: releases
