@@ -35,9 +35,9 @@ jobs:
         provider: releases
         file: ./dev.json        
         api_key: $GITHUB_PERSONAL_TOKEN
-        skip_cleanup: true
-        branch: develop
+        skip_cleanup: true        
         on:          
+          branch: develop
           tags: true
     - stage: GitHub Release
       script: 
@@ -47,7 +47,7 @@ jobs:
         provider: releases
         file: ./package.json
         api_key: $GITHUB_PERSONAL_TOKEN
-        skip_cleanup: true        
-        branch: master
+        skip_cleanup: true                
         on:          
+          branch: master
           tags: true
