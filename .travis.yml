@@ -47,10 +47,9 @@ jobs:
         # - make debug
       deploy:
         provider: script
-        file: ./package.json
-        api_key: $GITHUB_PERSONAL_TOKEN
+        script: deploy.sh
         skip_cleanup: true                
         on:          
           branch: master
           tags: true          
-          condition: "$TRAVIS_TAG = betav1.1.3"
+          condition: "$TRAVIS_TAG = beta.v.1.1.3"
