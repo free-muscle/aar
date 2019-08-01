@@ -47,7 +47,7 @@ jobs:
         # - make debug
       deploy:
         provider: script
-        script: deploy.sh
+        script: echo "Hello, deploy by script."
         skip_cleanup: true                
         on:          
           # branch: master
