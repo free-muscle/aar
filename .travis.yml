@@ -48,6 +48,6 @@ jobs:
         file: ./package.json
         api_key: $GITHUB_PERSONAL_TOKEN
         skip_cleanup: true        
-        on:
-          branch: master
+        branch: master
+        on:          
           tags: true
