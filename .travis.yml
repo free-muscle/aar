@@ -29,15 +29,17 @@ jobs:
     # - script: echo "Running unit tests"
     - stage: Dev Release
       script:
-        - echo "Deploying to github releases ..."
+        - echo "Deploying develop to github releases ..."
+        # - make debug
       deploy:
         provider: releases
-        file: ./dev.json
-        branch: develop
+        file: ./dev.json        
         api_key: $GITHUB_PERSONAL_TOKEN
         skip_cleanup: true
         on:
+          branch: develop
           tags: true
+          condition: $TRAVIS_TAG =~ ^(dev)$
     - stage: GitHub Release
       script: 
         - echo "Deploying to GitHub releases ..."
@@ -46,7 +48,7 @@ jobs:
         provider: releases
         file: ./package.json
         api_key: $GITHUB_PERSONAL_TOKEN
-        skip_cleanup: true
-        branch: master
+        skip_cleanup: true        
         on:
+          branch: master
           tags: true
