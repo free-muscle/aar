@@ -40,7 +40,7 @@ jobs:
         on:          
           branch: develop
           tags: true
-          condition: "$TRAVIS_TAG = dev1.1.1"
+          condition: "$TRAVIS_TAG =~ ^dev.v.*$"
     - stage: GitHub Release
       script: 
         - echo "Deploying to GitHub releases ..."
