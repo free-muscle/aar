@@ -39,18 +39,18 @@ jobs:
         skip_cleanup: true        
         on:          
           branch: develop
-          tags: true
-          condition: $TRAVIS_TAG =~ ^dev*$
+          tags: "dev1.1.1"
+          # condition: $TRAVIS_TAG =~ ^dev*$
     - stage: GitHub Release
       script: 
         - echo "Deploying to GitHub releases ..."
         # - make debug
       deploy:
-        provider: releases
+        provider: script
         file: ./package.json
         api_key: $GITHUB_PERSONAL_TOKEN
         skip_cleanup: true                
         on:          
           branch: master
           tags: true
-          condition: $TRAVIS_TAG =~ ^beta*$
+          # condition: $TRAVIS_TAG =~ ^beta*$
