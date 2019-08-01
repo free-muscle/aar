@@ -36,8 +36,8 @@ jobs:
         file: ./dev.json        
         api_key: $GITHUB_PERSONAL_TOKEN
         skip_cleanup: true
-        on:
-          branch: develop
+        branch: develop
+        on:          
           tags: true
     - stage: GitHub Release
       script: 
