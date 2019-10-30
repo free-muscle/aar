@@ -17,7 +17,7 @@
     "fs-extra": "0.18.1",
     "glob": "4.0.5",
     "qiniu": "6.1.11",
-    "request": "2.61.0",
+    "request": "2.88.0",
     "rimraf": "2.5.2"
   },
   "keywords": [
